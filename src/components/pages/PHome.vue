@@ -110,7 +110,7 @@
             this.$router.push({
               name: 'Main',
               params: { page: 'video' },
-              query: { type, id, utm_source: 'app-desktop' }, // app-desktop, newpersik
+              query: { type, id, utm_source: 'newpersik' },
             });
             break;
           case 'channel':
@@ -120,9 +120,7 @@
             });
             break;
           case 'site':
-            window.location = `${url}?utm_source=newpersik`;
-            // eslint-disable-next-line
-            // require('electron').shell.openExternal(`${url}?utm_source=app-desktop`);
+            window.open(`${url}?utm_source=newpersik`);
             break;
           default:
             break;
