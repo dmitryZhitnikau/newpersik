@@ -105,6 +105,7 @@
         return this.checkFavorite(id, content);
       },
       bannerRedirect(type, id, url) {
+        const urlSplit = url.split('#');
         switch (type) {
           case 'video':
             this.$router.push({
@@ -120,7 +121,7 @@
             });
             break;
           case 'site':
-            window.open(`${url}?utm_source=newpersik`);
+            window.open(`${urlSplit[0]}?utm_source=newpersik#${urlSplit[1]}`);
             break;
           default:
             break;
