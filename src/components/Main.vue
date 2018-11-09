@@ -10,11 +10,11 @@
 
       <img class="header__logo" :src="$backend.logo" v-on:click="goToMain">
 
-      <div class="header__item header__item_menu">
-      <!--   <div class="header__item-button">Private</div>-->
+      <!-- <div class="header__item header__item_menu">
+      <div class="header__item-button">Private</div>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdj9WBRu9n_8txQLT0Lc1UqiqceJuSvLJ3-Luk8u26V_2WvQg/viewform" class="header__item-button header__item-button_active">Перейти на анкету</a>
-        <!--<div class="header__item-button">Corporate</div>-->
-      </div> 
+        <div class="header__item-button">Corporate</div>
+      </div>  -->
 
       <div class="header__items">
 
