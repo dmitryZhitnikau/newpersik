@@ -23,7 +23,7 @@ class Backend extends PersikBackend {
 
   //eslint-disable-next-line
   get metricId() {
-    return 'UA-45377324-18';
+    return 'UA-126065208-3';
   }
 }
 

@@ -59,7 +59,7 @@ class Backend extends IBackend {
 
   //eslint-disable-next-line
   get metricId() {
-    return 'UA-45377324-17';
+    return 'UA-126065208-3';
   }
 
   // TODO: реализовать каждый модуль
