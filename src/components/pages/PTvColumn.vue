@@ -360,7 +360,7 @@
 
   &__channels {
     width: 18rem;
-    height: 100%;
+    height: calc(100vh - 2.5rem);
     text-align: left;
     background-color: $color-gray-medium;
     -webkit-box-shadow: $shadow-dark;
@@ -414,7 +414,7 @@
 
   &__tvshows-list {
     width: 21rem;
-    height: 100%;
+    height: calc(100vh - 2.5rem);
     background: $color-gray-medium;
     -webkit-box-shadow: $shadow-dark;
             box-shadow: $shadow-dark;
@@ -427,6 +427,7 @@
       text-align: center;
       margin-top: 18rem;
       text-transform: uppercase;
+      position: absolute;
     }
   }
 
