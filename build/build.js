@@ -1,8 +1,8 @@
 require('./check-versions')()
 
 var argv = require('minimist')(process.argv.slice(2));
-process.env.APP_TARGET = argv.target? argv.target : 'browser';
-process.env.APP_TYPE = argv.type? argv.type : 'web';
+process.env.APP_TARGET = 'browser';
+process.env.APP_TYPE = 'web';
 process.env.APP_BACKEND = argv.backend? argv.backend : 'persik';
 process.env.BUILD_NUMBER = argv.buildnumber? argv.buildnumber : 'N/A';
 
