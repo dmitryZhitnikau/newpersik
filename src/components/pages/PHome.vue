@@ -1,7 +1,7 @@
 <template>
   <div class="p-home">
     <w-placeholder v-if="showPlaceholder"></w-placeholder>
-    <div v-else class="p-home__block">    
+    <div v-else class="p-home__block">
 
     <slick class="p-home__block-banner"
         ref="slick"
@@ -19,7 +19,7 @@
           </div>
 
     </slick>
-      
+
       <b-channels class="p-home__channels" v-if="channels !== null" :title="$lang.messages.home.live" :channels="channels" :isHaveRedirect="true" :isStub="true"></b-channels>
       <b-videos
         class="p-home__videos"
@@ -29,7 +29,7 @@
         :items="section.items"
         :mode="section.mode"
         :isStub="true"
-      ></b-videos>      
+      ></b-videos>
 
     </div>
   </div>
@@ -88,14 +88,15 @@
         this.$store.commit('setSpecialChannels', this.channels);
       },
     },
+    async created() {
+      this.banners = await this.$backend.content.getBanners();
+      this.reInit();
+    },
     async activated() {
       Metric.getInstance().screenView('home');
       this.updateTimer = setInterval(this.lazyUpdate.bind(this), UPDATE_INTERVAL * 1000);
       this.lazyUpdate();
       this.$store.commit('setSpecialChannels', this.channels);
-      this.reInit();
-      this.banners = await this.$backend.content.getBanners();
-      this.reInit();
     },
     deactivated() {
       clearInterval(this.updateTimer);
@@ -197,7 +198,7 @@
             transition-timing-function: ease-out;
     overflow-x: hidden;
 
-    
+
     &_logo{
       display: block;
       margin: 0 auto;
@@ -213,7 +214,7 @@
 
 .banner-slide {
     position: relative;
-  
+
     &__nav {
       position: absolute;
       bottom: .9rem;
@@ -226,7 +227,7 @@
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: center;
-  
+
       &-btn {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -243,35 +244,35 @@
         transition: .2s;
         margin-right: 3rem;
         cursor: pointer;
-  
+
         &:last-child {
           margin-right: 0;
         }
-  
+
         &_show {
           background-color: #e05f20;
-  
+
           &:hover {
             background-color: #dd6a30;
           }
         }
-  
+
         &_favorite {
           background-color: transparent;
           font-weight: 100;
-  
+
           i {
             opacity: .7;
             padding-right: .5rem;
           }
-  
+
           &:hover {
             color: #e05f20;
           }
         }
       }
     }
-  
+
     &__img {
       width: 100%;
     }
