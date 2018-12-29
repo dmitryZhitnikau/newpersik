@@ -93,7 +93,7 @@ export default {
     },
     showAll() {
       if (this.title === 'Фильмы') {
-        this.$router.push({ name: 'Main', params: { page: 'video-films' } });
+        this.$router.push({ name: 'Main', params: { page: 'video-films' }, query: { tag: 0 } });
       } else if (this.items[0].type === 'tvshow') {
         this.$router.push({ name: 'Main', params: { page: 'video-shows' } });
       } else {

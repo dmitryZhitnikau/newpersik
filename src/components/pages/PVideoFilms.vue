@@ -74,8 +74,9 @@
     created() {
       this.$root.$on('bottomIsClose', this.loadVideo);
     },
-    activated() {
+    async activated() {
       Metric.getInstance().screenView('videos');
+      this.$root.$emit('focus', this.$el);
       if (this.connected && !this.isHaveData) {
         this.loadData();
       }
@@ -99,10 +100,13 @@
       },
       async loadVideo() {
         const count = this.items.length;
+        console.log('category: ', this.categoryId);
+        console.log('genre: ', +this.$route.query.tag);
         const result = await this.$backend.content.getVideos(
           { category_id: this.categoryId, genre_id: +this.$route.query.tag },
           this.sort, this.order, count, this.pageSize,
         );
+        console.log('Result: ', result);
         if (result.videos.length) {
           this.items = [...this.items, ...this.arrayToItems(result.videos)];
         }

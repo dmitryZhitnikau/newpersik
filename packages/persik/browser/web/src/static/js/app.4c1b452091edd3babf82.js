@@ -7123,7 +7123,7 @@ exports.default = {
     },
     showAll: function showAll() {
       if (this.title === 'Фильмы') {
-        this.$router.push({ name: 'Main', params: { page: 'video-films' } });
+        this.$router.push({ name: 'Main', params: { page: 'video-films' }, query: { tag: 0 } });
       } else if (this.items[0].type === 'tvshow') {
         this.$router.push({ name: 'Main', params: { page: 'video-shows' } });
       } else {
@@ -13258,31 +13258,51 @@ exports.default = {
   created: function created() {
     this.$root.$on('bottomIsClose', this.loadVideo);
   },
-  activated: function activated() {
-    _Metric2.default.getInstance().screenView('videos');
-    if (this.connected && !this.isHaveData) {
-      this.loadData();
+  activated: function () {
+    var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
+      return _regenerator2.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _Metric2.default.getInstance().screenView('videos');
+              this.$root.$emit('focus', this.$el);
+              if (this.connected && !this.isHaveData) {
+                this.loadData();
+              }
+
+            case 3:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function activated() {
+      return _ref.apply(this, arguments);
     }
-  },
+
+    return activated;
+  }(),
 
   methods: {
     hideFilter: function hideFilter() {
       this.$root.$emit('hideFilters');
     },
     loadData: function () {
-      var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
-        return _regenerator2.default.wrap(function _callee$(_context) {
+      var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2() {
+        return _regenerator2.default.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 if (!this.isNeedWatchUpdater) {
-                  _context.next = 8;
+                  _context2.next = 8;
                   break;
                 }
 
                 this.isNeedWatchUpdater = false;
                 this.items = [];
-                _context.next = 5;
+                _context2.next = 5;
                 return this.loadVideo();
 
               case 5:
@@ -13292,14 +13312,14 @@ exports.default = {
 
               case 8:
               case 'end':
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function loadData() {
-        return _ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
       }
 
       return loadData;
@@ -13308,34 +13328,38 @@ exports.default = {
       this.showPlaceholder = false;
     },
     loadVideo: function () {
-      var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2() {
+      var _ref3 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3() {
         var count, result;
-        return _regenerator2.default.wrap(function _callee2$(_context2) {
+        return _regenerator2.default.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 count = this.items.length;
-                _context2.next = 3;
+
+                console.log('category: ', this.categoryId);
+                console.log('genre: ', +this.$route.query.tag);
+                _context3.next = 5;
                 return this.$backend.content.getVideos({ category_id: this.categoryId, genre_id: +this.$route.query.tag }, this.sort, this.order, count, this.pageSize);
 
-              case 3:
-                result = _context2.sent;
+              case 5:
+                result = _context3.sent;
 
+                console.log('Result: ', result);
                 if (result.videos.length) {
                   this.items = [].concat((0, _toConsumableArray3.default)(this.items), (0, _toConsumableArray3.default)(this.arrayToItems(result.videos)));
                 }
                 this.showLoadMoreButton = result.videos.length + count < result.total;
 
-              case 6:
+              case 9:
               case 'end':
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
       function loadVideo() {
-        return _ref2.apply(this, arguments);
+        return _ref3.apply(this, arguments);
       }
 
       return loadVideo;
@@ -14364,7 +14388,7 @@ exports.default = {
     getInfo: function getInfo() {
       this.getDeviceInfo();
       this.getUuid();
-      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201812190116","BUILD_NUMBER":'N/A'});
+      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201812291431","BUILD_NUMBER":'N/A'});
       var buildNumber = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER : 'N/A';
       this.info.build = buildNumber + ' (' + env.BUILD_DATE + ')';
       this.info.resolution = this.device.display.width + 'x' + this.device.display.height;
@@ -21087,7 +21111,7 @@ exports.default = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.de
         case 9:
           console.log('Backend', backend.code, 'inited');
 
-          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201812190116","BUILD_NUMBER":'N/A'});
+          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201812291431","BUILD_NUMBER":'N/A'});
           appVersion = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER + ' (' + env.BUILD_DATE + ')' : 'N/A';
           metric = _Metric2.default.getInstance();
 
