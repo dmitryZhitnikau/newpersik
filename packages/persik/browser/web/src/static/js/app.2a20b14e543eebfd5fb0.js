@@ -6387,7 +6387,7 @@ exports.default = {
     menu: function menu() {
       return [{
         id: 1,
-        items: [{ page: 'home', name: this.$lang.messages.main_menu.main, fa: 'fa-home', show: this.$backend.support.featured }, { page: 'tv', name: this.$lang.messages.main_menu.tv_review, fa: 'fa-th', show: true }, { page: 'live', name: this.$lang.messages.main_menu.tv_live, icon: __webpack_require__(770), show: true }, { page: 'tv-column', name: this.$lang.messages.main_menu.tv_guide, icon: __webpack_require__(774), show: true }, { page: 'video-films', name: this.$lang.messages.main_menu.films, icon: __webpack_require__(769), show: this.$backend.support.vod }, { page: 'video-cartoons', name: this.$lang.messages.main_menu.cartoons, icon: __webpack_require__(771), show: this.$backend.support.vod }, { page: 'video-series', name: this.$lang.messages.main_menu.series, icon: __webpack_require__(773), show: this.$backend.support.vod }, { page: 'video-shows', name: this.$lang.messages.main_menu.shows, icon: __webpack_require__(772), show: this.$backend.support.vod }, { page: 'favorites', name: this.$lang.messages.main_menu.favorite, fa: 'fa-bookmark', show: this.$backend.support.auth && this.isLogged }]
+        items: [{ page: 'home', name: this.$lang.messages.main_menu.main, fa: 'fa-home', show: this.$backend.support.featured }, { page: 'tv', name: this.$lang.messages.main_menu.tv_review, fa: 'fa-th', show: true }, { page: 'live', name: this.$lang.messages.main_menu.tv_live, icon: __webpack_require__(770), show: true }, { page: 'tv-column', name: this.$lang.messages.main_menu.tv_guide, icon: __webpack_require__(774), show: true }, { page: 'video-films', name: this.$lang.messages.main_menu.films, icon: __webpack_require__(769), show: this.$backend.support.vod }, { page: 'video-cartoons', name: this.$lang.messages.main_menu.cartoons, icon: __webpack_require__(771), show: this.$backend.support.vod }, { page: 'video-series', name: this.$lang.messages.main_menu.series, icon: __webpack_require__(773), show: this.$backend.support.vod }, { page: 'video-shows', name: this.$lang.messages.main_menu.shows, icon: __webpack_require__(772), show: this.$backend.support.vod }, { page: 'favorites', name: this.$lang.messages.main_menu.favorite, fa: 'fa-bookmark', show: this.$backend.support.auth && this.isLogged }, { page: 'settings', name: this.$lang.messages.main_menu.settings, fa: 'fa-cog', show: this.$backend.support.auth && this.isLogged }]
       }];
     },
     isLogged: function isLogged() {
@@ -14388,7 +14388,7 @@ exports.default = {
     getInfo: function getInfo() {
       this.getDeviceInfo();
       this.getUuid();
-      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201812291431","BUILD_NUMBER":'N/A'});
+      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901050750","BUILD_NUMBER":'N/A'});
       var buildNumber = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER : 'N/A';
       this.info.build = buildNumber + ' (' + env.BUILD_DATE + ')';
       this.info.resolution = this.device.display.width + 'x' + this.device.display.height;
@@ -21111,7 +21111,7 @@ exports.default = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.de
         case 9:
           console.log('Backend', backend.code, 'inited');
 
-          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201812291431","BUILD_NUMBER":'N/A'});
+          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901050750","BUILD_NUMBER":'N/A'});
           appVersion = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER + ' (' + env.BUILD_DATE + ')' : 'N/A';
           metric = _Metric2.default.getInstance();
 
@@ -27193,43 +27193,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.gotoTab('diagnostic')
       }
     }
-  }, [_vm._v("\n        " + _vm._s(_vm.$lang.messages.settings.diagnostic) + "\n      ")]), _vm._v(" "), (_vm.hasVideoSettings) ? _c('div', {
-    staticClass: "p-settings__menu-item",
-    class: [_vm.activeTab === 'video' ? 'p-settings__menu-item_active' : null],
-    attrs: {
-      "data-xy-focusable": "",
-      "tabindex": "-1"
-    },
-    on: {
-      "click": function($event) {
-        _vm.gotoTab('video')
-      }
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.$lang.messages.settings.video) + "\n      ")]) : _vm._e(), _vm._v(" "), (_vm.authorized) ? _c('div', {
-    staticClass: "p-settings__menu-item",
-    class: [_vm.activeTab === 'parent-control' ? 'p-settings__menu-item_active' : null],
-    attrs: {
-      "data-xy-focusable": "",
-      "tabindex": "-1"
-    },
-    on: {
-      "click": function($event) {
-        _vm.gotoTab('parent-control')
-      }
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.$lang.messages.settings.parent_control) + "\n      ")]) : _vm._e(), _vm._v(" "), (_vm.connected) ? _c('div', {
-    staticClass: "p-settings__menu-item",
-    class: [_vm.activeTab === 'speed-test' ? 'p-settings__menu-item_active' : null],
-    attrs: {
-      "data-xy-focusable": "",
-      "tabindex": "-1"
-    },
-    on: {
-      "click": function($event) {
-        _vm.gotoTab('speed-test')
-      }
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.$lang.messages.settings.speed_test) + "\n      ")]) : _vm._e()]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n        " + _vm._s(_vm.$lang.messages.settings.diagnostic) + "\n      ")])]), _vm._v(" "), _c('div', {
     staticClass: "p-settings__page"
   }, [(_vm.activeTab === 'video') ? _c('p-settings-video') : _vm._e(), _vm._v(" "), (_vm.activeTab === 'diagnostic') ? _c('p-diagnostic') : _vm._e(), _vm._v(" "), (_vm.activeTab === 'parent-control') ? _c('p-parent-control') : _vm._e(), _vm._v(" "), (_vm.activeTab === 'location') ? _c('p-settings-location') : _vm._e(), _vm._v(" "), (_vm.activeTab === 'speed-test') ? _c('p-speed-test') : _vm._e()], 1)])
 },staticRenderFns: []}

@@ -20,16 +20,16 @@
         {{ $lang.messages.settings.diagnostic }}
       </div>
 
-      <div class="p-settings__menu-item"
+      <!-- <div class="p-settings__menu-item"
         v-if="hasVideoSettings"
         v-on:click="gotoTab('video')"
         v-bind:class="[activeTab === 'video' ? 'p-settings__menu-item_active': null]"
         data-xy-focusable tabindex="-1"
       >
         {{ $lang.messages.settings.video }}
-      </div>
+      </div> -->
 
-<!-- 
+<!--
       <div class="p-settings__menu-item"
         v-on:click="gotoTab('location')"
         v-bind:class="[activeTab === 'location' ? 'p-settings__menu-item_active': null]"
@@ -39,23 +39,23 @@
       </div>
 -->
 
-      <div class="p-settings__menu-item"
+      <!-- <div class="p-settings__menu-item"
         v-if="authorized"
         v-on:click="gotoTab('parent-control')"
         v-bind:class="[activeTab === 'parent-control' ? 'p-settings__menu-item_active': null]"
         data-xy-focusable tabindex="-1"
       >
         {{ $lang.messages.settings.parent_control }}
-      </div>
+      </div> -->
 
-      <div class="p-settings__menu-item"
+     <!--  <div class="p-settings__menu-item"
         v-if="connected"
         v-on:click="gotoTab('speed-test')"
         v-bind:class="[activeTab === 'speed-test' ? 'p-settings__menu-item_active': null]"
         data-xy-focusable tabindex="-1"
       >
         {{ $lang.messages.settings.speed_test }}
-      </div>
+      </div> -->
 
     </div>
 
@@ -177,6 +177,6 @@
             flex-grow: 1;
   }
 }
-  
+
 
 </style>

@@ -90,8 +90,8 @@
         @click="selectVideoGenre(genre)"
         >
           <div class="tags__item-name">{{ genre.name }}</div>
-        </div>        
-      </div>    
+        </div>
+      </div>
     </div>
 
     <div ref="mainContent" class="main__content">
@@ -111,13 +111,13 @@
         <p-video-shows v-if="normalizedPage=='video-shows'" :genreId="currentVideoTagGenre.id" :pageTitle="currentVideoTagGenre.name"></p-video-shows>
         <p-settings v-if="normalizedPage=='settings'" :tab="query.tab"></p-settings>
         <p-actor-info v-if="normalizedPage=='actor-info'" :id="query.id"></p-actor-info>
-      </keep-alive>      
+      </keep-alive>
     </div>
 
     <transition name="search-fade">
       <p-search v-show="isShowSearchPage"></p-search>
     </transition>
-   
+
   </div>
 </template>
 
@@ -201,6 +201,7 @@
               // eslint-disable-next-line
               { page: 'video-shows', name: this.$lang.messages.main_menu.shows, icon: require('@/assets/icons/pere.png'), show: this.$backend.support.vod },
               { page: 'favorites', name: this.$lang.messages.main_menu.favorite, fa: 'fa-bookmark', show: this.$backend.support.auth && this.isLogged },
+              { page: 'settings', name: this.$lang.messages.main_menu.settings, fa: 'fa-cog', show: this.$backend.support.auth && this.isLogged },
             ],
           },
         ];
@@ -596,7 +597,7 @@
           opacity: 0 !important;
         }
       }
-    
+
     }
   }
 
