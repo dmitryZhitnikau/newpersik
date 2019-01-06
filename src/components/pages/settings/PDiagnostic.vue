@@ -74,13 +74,13 @@
         }
       },
       async sync() {
-        const title = this.$lang.messages.parentCtrl.action;
-        const isValid = await this.checkPin(title);
-        if (isValid) {
-          epgManager.updateEpg();
-          this.$backend.clear();
-          this.syncVuexWithBackend();
-        }
+        // const title = this.$lang.messages.parentCtrl.action;
+        /* const isValid = await this.checkPin(title);
+        if (isValid) { */
+        epgManager.updateEpg();
+        this.$backend.clear();
+        this.syncVuexWithBackend();
+        // }
       },
       async reloadApp() {
         if (!this.$crazyMonkey.enabled) {
