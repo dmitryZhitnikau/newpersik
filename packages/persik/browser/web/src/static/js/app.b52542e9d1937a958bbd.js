@@ -14328,25 +14328,15 @@ exports.default = {
     }(),
     sync: function () {
       var _ref3 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3() {
-        var title, isValid;
         return _regenerator2.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                title = this.$lang.messages.parentCtrl.action;
-                _context3.next = 3;
-                return this.checkPin(title);
+                epgManager.updateEpg();
+                this.$backend.clear();
+                this.syncVuexWithBackend();
 
               case 3:
-                isValid = _context3.sent;
-
-                if (isValid) {
-                  epgManager.updateEpg();
-                  this.$backend.clear();
-                  this.syncVuexWithBackend();
-                }
-
-              case 5:
               case 'end':
                 return _context3.stop();
             }
@@ -14388,7 +14378,7 @@ exports.default = {
     getInfo: function getInfo() {
       this.getDeviceInfo();
       this.getUuid();
-      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901050750","BUILD_NUMBER":'N/A'});
+      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901062346","BUILD_NUMBER":'N/A'});
       var buildNumber = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER : 'N/A';
       this.info.build = buildNumber + ' (' + env.BUILD_DATE + ')';
       this.info.resolution = this.device.display.width + 'x' + this.device.display.height;
@@ -21111,7 +21101,7 @@ exports.default = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.de
         case 9:
           console.log('Backend', backend.code, 'inited');
 
-          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901050750","BUILD_NUMBER":'N/A'});
+          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901062346","BUILD_NUMBER":'N/A'});
           appVersion = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER + ' (' + env.BUILD_DATE + ')' : 'N/A';
           metric = _Metric2.default.getInstance();
 
