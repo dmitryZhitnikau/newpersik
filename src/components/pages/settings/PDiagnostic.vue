@@ -57,14 +57,15 @@
     },
     methods: {
       async resetAll() {
-        if (this.authorized) {
+        /* if (this.authorized) {
           const isValid = await this.checkPin('parentCtrl.action');
           if (isValid) {
             this.reset();
           }
         } else {
           this.reset();
-        }
+        } */
+        this.reset();
       },
       async reset() {
         if (!this.$crazyMonkey.enabled) {

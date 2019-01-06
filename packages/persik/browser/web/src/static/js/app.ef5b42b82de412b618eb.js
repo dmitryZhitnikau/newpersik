@@ -14255,32 +14255,13 @@ exports.default = {
   methods: {
     resetAll: function () {
       var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
-        var isValid;
         return _regenerator2.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!this.authorized) {
-                  _context.next = 7;
-                  break;
-                }
-
-                _context.next = 3;
-                return this.checkPin('parentCtrl.action');
-
-              case 3:
-                isValid = _context.sent;
-
-                if (isValid) {
-                  this.reset();
-                }
-                _context.next = 8;
-                break;
-
-              case 7:
                 this.reset();
 
-              case 8:
+              case 1:
               case 'end':
                 return _context.stop();
             }
@@ -14378,7 +14359,7 @@ exports.default = {
     getInfo: function getInfo() {
       this.getDeviceInfo();
       this.getUuid();
-      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901062346","BUILD_NUMBER":'N/A'});
+      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901062352","BUILD_NUMBER":'N/A'});
       var buildNumber = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER : 'N/A';
       this.info.build = buildNumber + ' (' + env.BUILD_DATE + ')';
       this.info.resolution = this.device.display.width + 'x' + this.device.display.height;
@@ -21101,7 +21082,7 @@ exports.default = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.de
         case 9:
           console.log('Backend', backend.code, 'inited');
 
-          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901062346","BUILD_NUMBER":'N/A'});
+          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901062352","BUILD_NUMBER":'N/A'});
           appVersion = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER + ' (' + env.BUILD_DATE + ')' : 'N/A';
           metric = _Metric2.default.getInstance();
 
