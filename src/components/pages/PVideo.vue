@@ -96,7 +96,7 @@
           <li
                   v-for="(season, index) in video.seasons"
                   :key="index"
-                  @click="openSeason(season)"             
+                  @click="openSeason(season)"
                   class="detail-video__seasons-nav-item">
             {{ season }}
             <span v-if="season===seasonSelect" class="detail-video__seasons-nav-item-glow"></span>
@@ -131,7 +131,7 @@
 <script>
   import _ from 'lodash';
   import moment from 'moment';
-  import Hls from 'hls.js';
+  // import Hls from 'hls.js';
   import BVideos from '@/components/blocks/BVideos';
   import WPlaceholder from '@/components/widgets/WPlaceholder';
   import Metric from '@/persik/platform/Metric';
@@ -168,7 +168,6 @@
       this.series = [];
       this.seasonSelect = 0;
       this.updateVideoInfo();
-      console.log(this.id);
     },
     activated() {
       Metric.getInstance().screenView('video');
@@ -286,20 +285,19 @@
         await this.castConvert();
         this.getSeasons();
         if (this.authorized) {
-          let streamData;
-          if (this.type === 'video') {
+          // let streamData;
+          /* if (this.type === 'video') {
             streamData = await this.$backend.stream.getVideo(this.id);
           } else if (this.type === 'tvshow') {
-            console.log(this.id);
             streamData = await this.$backend.stream.getTvshow(+this.id);
-            console.log(streamData);
-          }
-          const streamUrl = streamData.stream_url;
+          } */
+          /* const streamUrl = streamData.stream_url;
           const hls = new Hls();
           hls.loadSource(streamUrl);
           hls.on(Hls.Events.ERROR, () => {
+            console.log('hls ERROR');
             this.isAvailable = false;
-          });
+          }); */
         }
       },
       showVideo() {
