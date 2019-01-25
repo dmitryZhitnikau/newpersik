@@ -9116,6 +9116,9 @@ exports.default = {
   },
   created: function () {
     var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
+      var _this = this;
+
+      var banners;
       return _regenerator2.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9124,11 +9127,16 @@ exports.default = {
               return this.$backend.content.getBanners();
 
             case 2:
-              this.banners = _context.sent;
+              banners = _context.sent;
 
+              banners.forEach(function (b) {
+                if (b.img_url_desktop && b.img_url_desktop.length > 0) {
+                  _this.banners.push(b);
+                }
+              });
               this.reInit();
 
-            case 4:
+            case 5:
             case 'end':
               return _context.stop();
           }
@@ -9206,11 +9214,11 @@ exports.default = {
       }
     },
     reInit: function reInit() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.$refs.slick) {
         this.$nextTick(function () {
-          _this.$refs.slick.reSlick();
+          _this2.$refs.slick.reSlick();
         });
       }
     },
@@ -14310,7 +14318,7 @@ exports.default = {
     getInfo: function getInfo() {
       this.getDeviceInfo();
       this.getUuid();
-      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901171235","BUILD_NUMBER":'N/A'});
+      var env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901251221","BUILD_NUMBER":'N/A'});
       var buildNumber = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER : 'N/A';
       this.info.build = buildNumber + ' (' + env.BUILD_DATE + ')';
       this.info.resolution = this.device.display.width + 'x' + this.device.display.height;
@@ -21033,7 +21041,7 @@ exports.default = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.de
         case 9:
           console.log('Backend', backend.code, 'inited');
 
-          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901171235","BUILD_NUMBER":'N/A'});
+          env = __webpack_require__.i({"NODE_ENV":"production","BUILD_DATE":"201901251221","BUILD_NUMBER":'N/A'});
           appVersion = env.BUILD_NUMBER ? '#' + env.BUILD_NUMBER + ' (' + env.BUILD_DATE + ')' : 'N/A';
           metric = _Metric2.default.getInstance();
 

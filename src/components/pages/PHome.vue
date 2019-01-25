@@ -89,7 +89,12 @@
       },
     },
     async created() {
-      this.banners = await this.$backend.content.getBanners();
+      const banners = await this.$backend.content.getBanners();
+      banners.forEach(b => {
+        if (b.img_url_desktop && b.img_url_desktop.length > 0) {
+          this.banners.push(b);
+        }
+      });
       this.reInit();
     },
     async activated() {
